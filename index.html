@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Korapay</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./bootstrap-icons/bootstrap-icons.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./swiper-bundle.min.css">
+    
+    <style>
+      .swiper {
+          width: 81.5%;
+          height: 400px;
+
+          margin-top: 6.5%;
+         
+        }
+  
+        .swiper-slide {
+  
+          font-size: 18px;
+          background: #fff;
+          /* Center slide text vertically */
+         display: -webkit-box;
+          display: -ms-flexbox;
+          display: -webkit-flex;
+          display: flex;
+         -webkit-box-pack: center;
+          -ms-flex-pack: center;
+          -webkit-justify-content: center;
+          justify-content: space-between;
+          -webkit-box-align: center;
+      
+          -ms-flex-align: center;
+          -webkit-align-items: center;
+          align-items: center; 
+          padding-right: 100px;
+        }
+  
+         .swiper-slide img {
+          display: block;
+          width: 400px;
+          height: 100%;
+         
+          object-fit: cover;
+          filter:drop-shadow(15px 15px 15px  gray);
+        }
+        .swiper-button-prev{
+          background: linear-gradient(180deg, rgba(248, 248, 250, 0.8) 0%, #F8F8FA 51.36%, rgba(248, 248, 250, 0.8) 100%);
+          color: black;
+          width: 40px;
+          margin: 0%;
+          padding: 0%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0%;
+          mix-blend-mode: normal;
+          opacity: 0.8;
+        } 
+        .swiper-button-next{
+          background: linear-gradient(180deg, rgba(248, 248, 250, 0.8) 0%, #F8F8FA 51.36%, rgba(248, 248, 250, 0.8) 100%);
+          color: black;
+          width: 40px;
+          margin: 0%;
+          padding: 0%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          right: 0%;
+          mix-blend-mode: normal;
+          opacity: 0.8;
+        }
+        .swiper-pagination{
+            height: 50px;
+            
+            position: relative;
+            top: 20px;
+           
+        }
+        @media screen and (max-width:560px) {
+          .swiper-slide img {
+          display: block;
+          width: 150px;
+          
+         
+          object-fit: cover;
+          filter:drop-shadow(15px 15px 15px  gray);
+        }
+        .swiper-slide{
+          padding-right: 10px;
+       
+          height: 250px;
+          width: 450px;
+        }
+      }
+        
+      </style> 
+</head>
+<body>
+    
+    <nav>
+        <div class="header-brand">
+          
+         <div class="icons">
+           <a class="open-side">
+             <span>
+             </span>
+             <span>
+            </span>
+            <span>
+            </span>
+           </a>
+          <a href="index.html"> <img src="./logo.png" alt=""></a>
+         </div>
+           
+            <div>
+                <h2>Korapay Book Club</h2>
+                <p>Admin</p>
+            </div>
+           
+            
+            </div>
+           <div class="search">
+            <form action="#">
+          
+                <div class="search-item"> 
+                    <input class="search-text" type="text"
+                    placeholder=" Search Courses"
+                    name="search"></div>
+                    <div class="form-btn"> 
+                         <button id="search">
+                        <i class="bi bi-search "
+                            style="font-size: 18px;">
+                        </i>
+                    </button>
+                </div>
+            </form>
+            <div class="search-match"></div>
+      
+</div>
+        </div>
+        <div class="show">
+          <div class="search search-mobile">
+            <form action="#" autocomplete="off">
+              <div class="arrow">
+                <i class="bi bi-arrow-left"></i>
+              </div>
+                <div class="search-item"> 
+                    <input class="search-item search-mobile-text" type="text"
+                    placeholder=" Search Courses"
+                    name="search"></div>
+                    <div class="mb-btn"> 
+                         <button>
+                        <i class="bi bi-search "
+                            style="font-size: 18px;">
+                        </i>
+                    </button>
+                </div>
+            </form>
+        </div>
+        </div>
+
+
+ <div class="left">      
+    
+
+  <ul>
+    <li><a href=""> <svg width="22" height="20" viewBox="0 0 22 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="svg">
+       <path fill-rule="evenodd" clip-rule="evenodd" d="M8.5093 0C7.86438 0 7.42822 0.562054 7.42822 1.11486V18.8767C7.42822 19.4295 7.86438 20 8.5093 20H11.7525C12.3975 20 12.8336 19.4295 12.8336 18.8767V1.11486C12.8336 0.562054 12.3975 0 11.7525 0H8.5093ZM9.0498 1.62158H11.212V3.78374H9.0498V1.62158ZM1.45217 2.16211C0.867283 2.16211 0.371094 2.6583 0.371094 3.24319V18.9189C0.371094 19.5038 0.867283 19.9999 1.45217 19.9999H4.69542C5.28031 19.9999 5.7765 19.5038 5.7765 18.9189V3.24319C5.7765 2.6583 5.28031 2.16211 4.69542 2.16211H1.45217ZM1.99268 3.78381H4.15484V5.40544H1.99268V3.78381ZM9.0498 5.4054H11.212V14.5946H9.0498V5.4054ZM1.99268 7.02698H4.15484V15.1351H1.99268V7.02698ZM9.0498 16.2162H11.212V18.3783H9.0498V16.2162ZM1.99268 16.7567H4.15484V18.3783H1.99268V16.7567ZM17.5234 16.698L19.656 16.3414L19.9234 17.9409L17.7908 18.2974L17.5234 16.698ZM18.3188 8.34436L19.3885 14.742L17.2559 15.0986L16.1863 8.70091L18.3188 8.34436ZM15.6516 5.50206L17.7842 5.14551L18.0516 6.74493L15.919 7.10148L15.6516 5.50206ZM14.8509 3.99183C14.3036 4.08333 13.8587 4.6129 13.9587 5.21138L16.2833 19.1147C16.3833 19.7132 16.9777 20.0775 17.525 19.986L20.7239 19.4512C21.2712 19.3597 21.7147 18.8218 21.6147 18.2233L19.2901 4.32001C19.1901 3.72153 18.597 3.3655 18.0497 3.45701L14.8509 3.99183Z" fill="black"/>
+        </svg></a>
+        </li>
+         <li>
+        <a href=""><i class="bi bi-bell" id="bell"></i></a> <p class="top_icon">3</p>
+            </li>
+            <li>
+            <a href=""> 
+            <img src="./Ellipse (1).png" alt="" class="img"></a>
+            </li>
+       </ul>
+     </div>
+    </nav>
+    
+
+    <div class="container">
+        <section class="dashboard" style="box-shadow: -10px 0px 40px rgba(0, 0, 0, 0.1);">
+            <div class="sidebar">
+              <div class="arrow" id='arrow'>
+                <i class="bi bi-arrow-left"></i>
+              </div>
+              <div class="mobile">
+                <a href="index.html"> <img src="./logo.png" alt=""></a>
+                <div>
+                  <h2>Korapay Book Club</h2>
+                  <p>Admin</p>
+                </div> 
+               
+              </div>
+                <ul class="line">
+                   <a href=""><li class="actives">home</li></a> 
+                   <a href=""><li>profile</li></a> 
+                   <a href=""><li>notifications <span class="gr">3</span></li></a> 
+                </ul>
+                <ul class="line">
+                   <a href=""><li class="active">Explore</li></a> 
+                   <a href=""><li>Books <span>273</span></li></a> 
+                   <a href=""><li>grenes <span>43</span></li></a> 
+                   <a href=""><li>authors <span>106</span></li></a> 
+                </ul>
+                <ul class="line">
+                   <a href=""><li class="active">my books</li></a> 
+                   <a href=""><li>queued <span>3</span></li></a> 
+                   <a href=""><li>currently borrowed <span>0</span></li></a> 
+                   <a href=""><li>favorites <span>19</span></li></a> 
+                   <a href=""><li>history</li></a> 
+                </ul>
+                <ul>
+                   <a href=""><li class="active">admin</li></a> 
+                   <a href=""><li>book requests <span class="gr">2</span></li></a> 
+                   <a href=""><li>members <span>34</span></li></a> 
+                   <a href=""><li>library settings</li></a> 
+                </ul>
+            </div> 
+        </section>
+        <div class="right">
+      
+          <div>
+            <div class="text">
+              <h1>Featured Books</h1>
+            </div>
+              <div class="swiper mySwiper" style=" background: #fff; ">  
+                  <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="./big magic.png" alt=""></div>
+                    
+                    <div class="swiper-slide"><img src="./effective python.png" alt=""></div>
+                   
+                    <div class="swiper-slide"><img src="./built to last (1).png" alt=""></div>
+                    <div class="swiper-slide"><img src="./the lean startup.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./effective python.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./effective engineer.png" alt=""></div>
+                    <div class="swiper-slide"><img src="./built to last (1).png" alt=""></div>
+                    <div class="swiper-slide"><img  src="./effective engineer.png" alt=""></div>
+                  </div>
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                  
+                </div>  
+                <div class="swiper-pagination" style=" color: #65C100; "></div>
+          </div>
+         
+          
+          
+          
+          <!-- Swiper -->
+          
+          
+          
+          <section class="testimonials">
+              <h1 style="text-align: left;  border-bottom: 1px solid #dddddd; padding-bottom: 20px; font-weight: 300;">RECENTLY ADDED</h1> <br>
+               
+          
+              <div class="row">
+                  <div class="testimonials-col">
+                      <img src="./big magic.png" alt="">
+                      <div>
+                        <p style="color: #65C100;">Avaliable</p> <br>
+                          <p class="p1">The Effective Engineer</p>
+                          <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                          <div class="ratings">
+                            <div>
+                              <p>Ratings: 4.0</p>
+                          <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                            </div>
+                          
+                          <div class="right-icon">
+                          <div > <i class="bi bi-people"></i> <br>31</div> 
+                            <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                          </div>  
+                          </div>
+                                      
+                      </div>
+                 </div>
+          
+          
+                 <div class="testimonials-col">
+                  <img src="./effective engineer.png" alt="">
+                  <div>
+                    <p style="color: #65C100;">Avaliable</p> <br>
+                      <p class="p1">The Effective Engineer</p>
+                      <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                      <div class="ratings">
+                        <div>
+                          <p>Ratings: 4.0</p>
+                      <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                        </div>
+                      
+                      <div class="right-icon">
+                      <div > <i class="bi bi-people"></i> <br>31</div> 
+                        <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                      </div>  
+                      </div>
+                                  
+                  </div>
+             </div>
+          
+             <div class="testimonials-col">
+              <img src="./effective python.png" alt="">
+              <div>
+                <p style="color: #65C100;">Avaliable</p> <br>
+                  <p class="p1">The Effective Engineer</p>
+                  <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                  <div class="ratings">
+                    <div>
+                      <p>Ratings: 4.0</p>
+                  <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                    </div>
+                  
+                  <div class="right-icon">
+                  <div > <i class="bi bi-people"></i> <br>31</div> 
+                    <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                  </div>  
+                  </div>
+                              
+              </div>
+          </div>
+          
+              </div>
+          
+              <div class="row">
+                <div class="testimonials-col">
+                  <img src="./big magic.png" alt="">
+                  <div>
+                    <p style="color: #65C100;">Avaliable</p> <br>
+                      <p class="p1">The Effective Engineer</p>
+                      <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                      <div class="ratings">
+                        <div>
+                          <p>Ratings: 4.0</p>
+                      <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                        </div>
+                      
+                      <div class="right-icon">
+                      <div > <i class="bi bi-people"></i> <br>31</div> 
+                        <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                      </div>  
+                      </div>
+                                  
+                  </div>
+             </div>
+          
+                 <div class="testimonials-col">
+                      <img src="./effective engineer.png" alt="">
+                      <div>
+                        <p style="color: #65C100;">Avaliable</p> <br>
+                          <p class="p1">The Effective Engineer</p>
+                          <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+                          <div class="ratings">
+                            <div>
+                              <p>Ratings: 4.0</p>
+                          <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                            </div>
+                          
+                          <div class="right-icon">
+                          <div > <i class="bi bi-people"></i> <br>31</div> 
+                            <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                          </div>  
+                          </div>
+                                      
+                      </div>
+                 </div>
+            
+          
+                 <div class="testimonials-col">
+                  <img src="./effective python.png" alt="">
+                  <div>
+                    <p style="color: #65C100;">Avaliable</p> <br>
+                      <p class="p1">The Effective Engineer</p>
+                      <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                      <div class="ratings">
+                        <div>
+                          <p>Ratings: 4.0</p>
+                      <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                        </div>
+                      
+                      <div class="right-icon">
+                      <div > <i class="bi bi-people"></i> <br>31</div> 
+                        <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                      </div>  
+                      </div>
+                                  
+                  </div>
+             </div>
+            </div>
+          
+          
+          
+            <h1 style="text-align: left;  border-bottom: 1px solid #dddddd; padding-bottom: 20px; font-weight: 300; ">All BOOKS</h1> <br>
+                <div class="row">
+                  <div class="testimonials-col">
+                    <img src="./big magic.png" alt="">
+                    <div>
+                      <p style="color: #65C100;">Avaliable</p> <br>
+                        <p class="p1">The Effective Engineer</p>
+                        <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                        <div class="ratings">
+                          <div>
+                            <p>Ratings: 4.0</p>
+                        <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                          </div>
+                        
+                        <div class="right-icon">
+                        <div > <i class="bi bi-people"></i> <br>31</div> 
+                          <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                        </div>  
+                        </div>
+                                    
+                    </div>
+              </div>
+          
+              <div class="testimonials-col">
+                <img src="./effective engineer.png" alt="">
+                <div>
+                  <p style="color: #65C100;">Avaliable</p> <br>
+                    <p class="p1">The Effective Engineer</p>
+                    <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                    <div class="ratings">
+                      <div>
+                        <p>Ratings: 4.0</p>
+                    <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                      </div>
+                    
+                    <div class="right-icon">
+                    <div > <i class="bi bi-people"></i> <br>31</div> 
+                      <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                    </div>  
+                    </div>
+                                
+                </div>
+              </div>
+          
+          
+              <div class="testimonials-col">
+                <img src="./effective python.png" alt="">
+                <div>
+                  <p style="color: #65C100;">Avaliable</p> <br>
+                    <p class="p1">The Effective Engineer</p>
+                    <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+                    <div class="ratings">
+                      <div>
+                        <p>Ratings: 4.0</p>
+                    <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                      </div>
+                    
+                    <div class="right-icon">
+                    <div > <i class="bi bi-people"></i> <br>31</div> 
+                      <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                    </div>  
+                    </div>     
+                </div>
+          </div>
+          </div>
+          
+                <div class="row">
+                  <div class="testimonials-col">
+                    <img src="./big magic.png" alt="">
+                    <div>
+                      <p style="color: #65C100;">Avaliable</p> <br>
+                        <p class="p1">The Effective Engineer</p>
+                        <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                        <div class="ratings">
+                          <div>
+                            <p>Ratings: 4.0</p>
+                        <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                          </div>
+                        
+                        <div class="right-icon">
+                        <div > <i class="bi bi-people"></i> <br>31</div> 
+                          <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                        </div>  
+                        </div>
+                                    
+                    </div>
+                </div>
+          
+                <div class="testimonials-col">
+                <img src="./effective engineer.png" alt="">
+                <div>
+                  <p style="color: #65C100;">Avaliable</p> <br>
+                    <p class="p1">The Effective Engineer</p>
+                    <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                    <div class="ratings">
+                      <div>
+                        <p>Ratings: 4.0</p>
+                    <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                      </div>
+                    
+                    <div class="right-icon">
+                    <div > <i class="bi bi-people"></i> <br>31</div> 
+                      <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                    </div>  
+                    </div>
+                                
+                </div>
+                </div>
+          
+          
+                <div class="testimonials-col">
+                <img src="./effective python.png" alt="">
+                <div>
+                  <p style="color: #65C100;">Avaliable</p> <br>
+                    <p class="p1">The Effective Engineer</p>
+                    <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                    <div class="ratings">
+                      <div>
+                        <p>Ratings: 4.0</p>
+                    <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                      </div>
+                    
+                    <div class="right-icon">
+                    <div > <i class="bi bi-people"></i> <br>31</div> 
+                      <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                    </div>  
+                    </div>
+                                
+                </div>
+                </div>
+                </div>
+          
+          
+                    <div class="row">
+                      <div class="testimonials-col">
+                        <img src="./big magic.png" alt="">
+                        <div>
+                          <p style="color: #65C100;">Avaliable</p> <br>
+                            <p class="p1">The Effective Engineer</p>
+                            <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                            <div class="ratings">
+                              <div>
+                                <p>Ratings: 4.0</p>
+                            <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                              </div>
+                            
+                            <div class="right-icon">
+                            <div > <i class="bi bi-people"></i> <br>31</div> 
+                              <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                            </div>  
+                            </div>
+                                        
+                        </div>
+                  </div>
+          
+                  <div class="testimonials-col">
+                    <img src="./effective engineer.png" alt="">
+                    <div>
+                      <p style="color: #65C100;">Avaliable</p> <br>
+                        <p class="p1">The Effective Engineer</p>
+                        <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                        <div class="ratings">
+                          <div>
+                            <p>Ratings: 4.0</p>
+                        <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                          </div>
+                        
+                        <div class="right-icon">
+                        <div > <i class="bi bi-people"></i> <br>31</div> 
+                          <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                        </div>  
+                        </div>
+                                    
+                    </div>
+                  </div>
+          
+          
+                  <div class="testimonials-col">
+                    <img src="./effective python.png" alt="">
+                    <div>
+                      <p style="color: #65C100;">Avaliable</p> <br>
+                        <p class="p1">The Effective Engineer</p>
+                        <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+                        <div class="ratings">
+                          <div>
+                            <p>Ratings: 4.0</p>
+                        <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                          </div>
+                        
+                        <div class="right-icon">
+                        <div > <i class="bi bi-people"></i> <br>31</div> 
+                          <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                        </div>  
+                        </div>
+                                    
+                    </div>
+              </div>
+              </div>
+          
+          
+                  <div class="row">
+                    <div class="testimonials-col">
+                      <img src="./big magic.png" alt="">
+                      <div>
+                        <p style="color: #65C100;">Avaliable</p> <br>
+                          <p class="p1">The Effective Engineer</p>
+                          <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+                          <div class="ratings">
+                            <div>
+                              <p>Ratings: 4.0</p>
+                          <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                            </div>
+                          
+                          <div class="right-icon">
+                          <div > <i class="bi bi-people"></i> <br>31</div> 
+                            <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                          </div>  
+                          </div>
+                                      
+                      </div>
+                </div>
+          
+                <div class="testimonials-col">
+                  <img src="./effective engineer.png" alt="">
+                  <div>
+                    <p style="color: #65C100;">Avaliable</p> <br>
+                      <p class="p1">The Effective Engineer</p>
+                      <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                      <div class="ratings">
+                        <div>
+                          <p>Ratings: 4.0</p>
+                      <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                        </div>
+                      
+                      <div class="right-icon">
+                      <div > <i class="bi bi-people"></i> <br>31</div> 
+                        <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                      </div>  
+                      </div>
+                                  
+                  </div>
+                </div>
+          
+          
+                <div class="testimonials-col">
+                  <img src="./effective python.png" alt="">
+                  <div>
+                    <p style="color: #65C100;">Avaliable</p> <br>
+                      <p class="p1">The Effective Engineer</p>
+                      <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                      <div class="ratings">
+                        <div>
+                          <p>Ratings: 4.0</p>
+                      <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                        </div>
+                      
+                      <div class="right-icon">
+                      <div > <i class="bi bi-people"></i> <br>31</div> 
+                        <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                      </div>  
+                      </div>
+                                  
+                  </div>
+              </div>
+              </div>
+          
+              
+              <div class="row">
+                <div class="testimonials-col">
+                  <img src="./big magic.png" alt="">
+                  <div>
+                    <p style="color: #65C100;">Avaliable</p> <br>
+                      <p class="p1">The Effective Engineer</p>
+                      <p class="p2">Edmond Lau-2009 <br> Motivational</p> 
+          
+                      <div class="ratings">
+                        <div>
+                          <p>Ratings: 4.0</p>
+                      <div style="color: rgb(237, 186, 59); font-size: 20px;">&bigstar;   &bigstar;  &bigstar;  &bigstar; &star; </div> 
+                        </div>
+                      
+                      <div class="right-icon">
+                      <div > <i class="bi bi-people"></i> <br>31</div> 
+                        <div><i class="bi bi-suit-heart"></i> <br>29</div>
+                      </div>  
+                      </div>
+                                  
+                  </div>
+            </div>
+   </div>
+   
+
+</section>
+
+
+
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- Initialize Swiper -->
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 1,
+        spaceBetween: 10,
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 40,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 50,
+          },
+        },
+        // cssMode: true,
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        }
+      });
+
+     let sideBtn = document.getElementsByClassName('open-side')[0];
+     let sideBar = document.getElementsByClassName('dashboard')[0];
+     let backBtn = document.getElementsByClassName('arrow')[1];
+     let backMobile = document.getElementsByClassName('arrow')[0];
+    let searchBtn = document.getElementById('search')
+    let mobileSearch = document.getElementsByClassName('show')[0]
+     function openSideBar (){
+
+       if(!sideBar.classList.contains('slide-in')){
+        
+        sideBar.classList.remove('slide-in')
+       }
+       {
+  
+         
+        sideBar.classList.toggle('slide-in')
+       
+        
+       }
+     }
+     
+     function openMobileSearch(){
+       
+       mobileSearch.classList.add('display')
+     }
+     function closeMobileSearch(){
+       
+      mobileSearch.classList.remove('display')
+     }
+     sideBtn.addEventListener('click',openSideBar)
+     backBtn.addEventListener('click',openSideBar)
+     searchBtn.addEventListener('click',openMobileSearch)
+     backMobile.addEventListener('click',closeMobileSearch)
+     
+     let arrayOfBooks = [{
+       name:'python mastery',
+       description:'learn python'
+     },
+     {
+       name:'Coding fundamentals',
+       description:'learn how to code'
+     },
+     {
+       name:'The Lean startUp',
+       description:'how to create a startup'
+     },
+    
+    
+    ]
+    
+    let searchbox = document.getElementsByClassName('search-match')[0]
+    
+    let  searchDestop = document.getElementsByClassName('search-text')[0];
+    let searchMobile = document.getElementsByClassName('search-mobile-text')[0]
+    console.log(searchDestop)
+    
+    let foundItem = document.createElement('div') 
+    function returnMatching(e) {
+    
+      searchDestop.value=e.target.value
+   
+    if(searchDestop.value){
+      searchbox.style.display ='block'
+      arrayOfBooks.filter((item)=>item.name.trim().toLowerCase().includes(searchDestop.value)).map((item)=>{
+      console.log(item)
+      
+        foundItem.innerHTML =`<ul>
+        <li>${item.name} </li><span>-${item.description}</span></ul>
+        
+        `
+      
+        searchbox.appendChild(foundItem)
+      
+    })
+    
+    
+   
+    }
+    else if(searchDestop.value.length === 0){
+      searchbox.style.display ='none'
+      
+    }
+   
+    
+    
+  }
+
+  
+  function returnMatchingMobile(e) {
+    
+    searchMobile.value=e.target.value
+ 
+  if(searchMobile.value){
+    searchbox.style.display ='block'
+    arrayOfBooks.filter((item)=>item.name.trim().toLowerCase().includes(searchMobile.value)).map((item)=>{
+    console.log(item)
+    
+      foundItem.innerHTML =`<ul>
+      <li>${item.name} </li><span>-${item.description}</span></ul>
+      
+      `
+    
+      searchbox.appendChild(foundItem)
+    
+  })
+  
+  
+ 
+  }
+  else if(searchMobile.value.length === 0){
+    searchbox.style.display ='none'
+    
+  }
+ 
+  
+  
+}
+  
+     searchDestop.addEventListener('keyup',returnMatching)
+     
+     searchMobile.addEventListener('keyup',returnMatchingMobile)
+     
+    </script>
+</body>
+</html>
